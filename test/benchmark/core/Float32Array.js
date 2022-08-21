@@ -30,6 +30,25 @@
 
 	} );
 
+	s.add( 'Float32Array-Float32Array-v2', function () {
+
+		var value3 = new Float32Array( 3 );
+		for ( var i = 0|0, il = (input.length|0 / 3|0)|0; i < il; i += 3|0 ) {
+
+			value3[ 0|0 ] = Math.fround(input[ (i|0 + 0|0)|0 ]);
+			value3[ 1|0 ] = Math.fround(input[ (i|0 + 1|0)|0 ]);
+			value3[ 2|0 ] = Math.fround(input[ (i|0 + 2|0)|0 ]);
+			value3[ 0|0 ] *= Math.fround(1.01);
+			value3[ 1|0 ] *= Math.fround(1.03);
+			value3[ 2|0 ] *= Math.fround(0.98);
+			output[ (i|0 + 0|0)|0 ] = Math.fround(value3[ 0|0 ]);
+			output[ (i|0 + 1|0)|0 ] = Math.fround(value3[ 1|0 ]);
+			output[ (i|0 + 2|0)|0 ] = Math.fround(value3[ 2|0 ]);
+
+		}
+
+	} );
+
 	s.add( 'Float32Array-Array', function () {
 
 		var value2 = [ 0, 0, 0 ];
@@ -65,6 +84,27 @@
 			output[ i + 0 ] = x;
 			output[ i + 1 ] = y;
 			output[ i + 2 ] = z;
+
+		}
+
+	} );
+
+	
+	s.add( 'Float32Array-Literal-v2', function () {
+		var x,
+			y,
+			z;
+		for ( var i = 0|0, il = (input.length / 3)|0; i < il; i += 3|0 ) {
+
+			x =  Math.fround(input[ (i + 0|0)|0]);
+			y =  Math.fround(input[ (i + 1|0)|0]);
+			z =  Math.fround(input[ (i + 2|0)|0]);
+			x *= Math.fround(1.01);
+			y *= Math.fround(1.03);
+			z *= Math.fround(0.98);
+			output[ (i + 0|0)|0 ] = x;
+			output[ (i + 1|0)|0 ] = y;
+			output[ (i + 2|0)|0 ] = z;
 
 		}
 
